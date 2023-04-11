@@ -14,6 +14,7 @@ class BasicObject {
   width;
   height;
   img;
+  visible;
   constructor() {}
 
   draw() {
@@ -25,7 +26,9 @@ class BasicObject {
       obj.x >= this.x - obj.width + 2 &&
       obj.x <= this.x + obj.width - 2 &&
       obj.y >= this.y - obj.height + 2 &&
-      obj.y <= this.y + obj.height - 2
+      obj.y <= this.y + obj.height - 2 &&
+      this.visible &&
+      obj.visible
     );
   }
 }

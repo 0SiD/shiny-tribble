@@ -6,11 +6,12 @@ class Player extends BasicObject {
     this.speed = this.baseSpeed * worldUnit;
     this.width = 16;
     this.height = 8;
+    this.visible = true;
 
     this.x = 0;
     this.y = 0;
 
-    this.lastMovement;
+    this.lastMovement = { x: this.x + this.speed * deltaTime };
     this.img = new Image();
     this.img.src = "./assets/imgs/player.png";
 

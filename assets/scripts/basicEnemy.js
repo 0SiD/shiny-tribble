@@ -6,7 +6,7 @@ class BasicEnemy extends BasicObject {
     this.speed = this.baseSpeed * worldUnit;
     this.width = 10;
     this.height = 5;
-
+    this.visible = true;
     this.x = 100;
     this.y = 50;
   }
@@ -18,10 +18,20 @@ class BasicEnemy extends BasicObject {
   update() {
     this.draw();
     if (this.onCollision(scene.bomb)) {
+      scene.bomb.pushed = true;
       this.width = 0;
+      this.visible = false;
 
-      for (this.i = 0; this.i < 3; this.i++)
+      for (this.i = 0; this.i < 3; this.i++) {
         setTimeout(() => (scene.bomb.width /= this.i), 300 + this.i * 30);
+        setTimeout(() => console.log("reduced"), 300 + this.i * 30);
+      }
+
+      setTimeout(() => {
+        scene.bomb.pushed = false;
+        scene.bomb.visible = false;
+        scene.bomb.width = scene.bomb.WIDTH;
+      }, 400 + this.i * 30);
     }
 
     if (this.onCollision(scene.player)) {

@@ -3,15 +3,15 @@ class Bomb extends BasicObject {
     super();
     this.baseSpeed = 130;
     this.speed = this.baseSpeed * worldUnit;
+    this.WIDTH = 20;
     this.width = 20;
     this.height = 10;
-    this.x = 20;
-    this.y = 20;
+
     this.canMove = true;
     this.pushed = false;
-    this.exceded = false;
     this.img = new Image(this.width, this.height);
     this.img.src = "./assets/imgs/bomb.png";
+    this.visible = false;
   }
 
   move() {
@@ -58,11 +58,28 @@ class Bomb extends BasicObject {
   }
 
   update() {
-    this.draw();
+    if (this.visible) this.draw();
 
-    document.addEventListener("keydown", (e) =>
-      e.key === "r" && !this.pushed ? (this.x = 2) : null
-    );
+    document.addEventListener("keydown", (e) => {
+      if (e.key === "e" && !this.pushed) {
+        this.visible = true;
+        if (scene.player.lastMovement["x"]) {
+          this.x =
+            scene.player.x +
+            (scene.player.width + 4) *
+              Math.sign(scene.player.lastMovement["x"]);
+
+          this.y = scene.player.y;
+        } else {
+          this.y =
+            scene.player.y +
+            (scene.player.width - 6) *
+              Math.sign(scene.player.lastMovement["y"]);
+
+          this.x = scene.player.x;
+        }
+      }
+    });
 
     if (this.onCollision(scene.player) && this.pushed) {
       this.canMove = false;

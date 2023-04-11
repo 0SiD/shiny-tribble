@@ -1,6 +1,6 @@
 let fps = 60,
   expected = 1000 / fps,
-  deltaTime;
+  deltaTime = expected;
 
 const canva = new Canva(
   document.getElementById("board"),
