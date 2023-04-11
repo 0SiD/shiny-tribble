@@ -11,7 +11,7 @@ class Bomb extends BasicObject {
     this.pushed = false;
     this.exceded = false;
     this.img = new Image(this.width, this.height);
-    this.img.src = "https://0sid.github.io/shiny-tribble/assets/imgs/bomb.png";
+    this.img.src = "./assets/imgs/bomb.png";
   }
 
   move() {
