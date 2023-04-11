@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>web game</title>
+  </head>
+  <body>
+    <div id="gameContainer">
+      <img src="assets/imgs/skylines.jpg" alt="skylinsfilter" />
+      <canvas id="board" class="game"></canvas>
+      <canvas id="ui" class="game"></canvas>
+    </div>
+  </body>
+
+  <style>
+    #ui {
+      display: none;
+    }
+
+    body {
+      background: black;
+      height: 100vh;
+      margin: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    body > div {
+      display: block;
+      width: 80vw;
+      height: 80vw;
+      max-width: 100vh;
+      max-height: 100vh;
+      background-color: red;
+      position: relative;
+    }
+
+    body > div > img {
+      position: absolute;
+      z-index: 10;
+      width: 100%;
+      mix-blend-mode: overlay;
+      opacity: 0.2;
+    }
+
+    .game {
+      position: absolute;
+      background: #662895;
+      height: 100%;
+      width: 100%;
+    }
+  </style>
+  <script src="./assets/scripts/basicObject.js"></script>
+  <script src="./assets/scripts/player.js"></script>
+  <script src="./assets/scripts/bomb.js"></script>
+  <script src="./assets/scripts/canva.js"></script>
+  <script src="./assets/scripts/basicEnemy.js"></script>
+  <script src="main.js"></script>
+</html>
