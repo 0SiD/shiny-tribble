@@ -12,8 +12,7 @@ class Player extends BasicObject {
 
     this.lastMovement;
     this.img = new Image();
-    this.img.src =
-      "https://0sid.github.io/shiny-tribble/assets/imgs/player.png";
+    this.img.src = "./assets/imgs/player.png";
 
     document.addEventListener("keydown", (e) => this.move(e, this));
   }
